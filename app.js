@@ -14,8 +14,12 @@ dotenv.config();
 // Create Express app
 const app = express();
 
+//Include cors
+app.use(cors());
+
 // Middleware
 app.use(bodyParser.json());
+
 // MongoDB connection
 mongoose.connect('mongodb+srv://nixxphi:this.is.the@redcluster.pixh5su.mongodb.net/?retryWrites=true&w=majority&appName=Redcluster', {
   useNewUrlParser: true,
