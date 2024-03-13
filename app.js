@@ -1,13 +1,10 @@
-// Importing necessary modules
-const express = require('express');
-const mongoose = require('mongoose');
-const roomTypeRouter = require('./roomTypeRouter');
+./roomTypeRouter');
 const errorHandler = require('./errorHandler');
-const rooms = require('./rooms');
+
 const app = express();
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/hotel_management', {
+// MongoDB connection
+mongoose.connect('mongodb+srv://nixxphi:this.is.the@redcluster.pixh5su.mongodb.net/?retryWrites=true&w=majority&appName=Redcluster', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
@@ -27,7 +24,7 @@ app.use('/api/v1', roomTypeRouter);
 // Error handling middleware
 app.use(errorHandler);
 
-// Start the server
+// Starting the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
