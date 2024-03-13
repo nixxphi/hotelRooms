@@ -1,4 +1,7 @@
-./roomTypeRouter');
+// Importing necessary modules
+const express = require('express');
+const mongoose = require('mongoose');
+const roomTypeRouter = require('./roomTypeRouter');
 const errorHandler = require('./errorHandler');
 
 const app = express();
