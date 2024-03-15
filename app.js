@@ -1,4 +1,4 @@
-// Importing necessary modules
+// IMPORTING NECESSARY MODULES
 const app = express();
 const express = require('express');
 const mongoose = require('mongoose');
@@ -8,19 +8,19 @@ const roomTypeRouter = require('./roomTypeRouter');
 const roomRouter = require('./roomRouter');
 const errorHandler = require('./errorHandler');
 
-// Load environment variables from .env file
+// LOAD ENVIRONMENT VARIABLES FROM .ENV FILE
 dotenv.config();
 
-// Create Express app
+// CREATING EXPRESS APP
 const app = express();
 
-// Include cors
+// INCLUDE CORS
 app.use(cors());
 
-// Middleware
+// MIDDLEWARE
 app.use(bodyParser.json());
 
-// MongoDB connection
+// MONGODB CONNECTION
 mongoose.connect('mongodb+srv://nixxphi:this.is.the@redcluster.pixh5su.mongodb.net/?retryWrites=true&w=majority&appName=Redcluster', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -32,16 +32,15 @@ mongoose.connect('mongodb+srv://nixxphi:this.is.the@redcluster.pixh5su.mongodb.n
   console.error('Error connecting to MongoDB:', error);
 });
 
-// Middleware
 app.use(express.json());
 
-// Routes
+// ROUTES
 app.use('/api/v1', roomTypeRouter);
 
-// Error handling middleware
+// ERROR HANDLING MIDDLEWARE
 app.use(errorHandler);
 
-// Starting the server
+// STARTING THE SERVER
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
