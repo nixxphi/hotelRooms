@@ -1,15 +1,22 @@
-// Function to handle asynchronous operations with error handling
+// ASYNC HANDLER FOR EVENTS
 const asyncHandler = (fn) => (req, res, next) => {
   Promise.resolve(fn(req, res, next)).catch(next);
 };
 
-// Function to format error responses
+// HERE'S THE ERROR HANDLER
 const errorHandler = (err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ message: 'Internal server error' });
 };
 
+// OBJECT ID VALIDATOR. 
+const validateObjectId = (id) => {
+  const ObjectId = require('mongoose').roomTypeId;
+  return ObjectId.isValid(id);
+};
+
 module.exports = {
   asyncHandler,
-  errorHandler
-};￼Enter
+  errorHandler,
+  validateObjectId
+};
