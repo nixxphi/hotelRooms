@@ -28,8 +28,8 @@ This project is a Hotel Rooms Management System built with Node.js, Express.js, 
    npm install nodemon
    ```
 3. The dotenv file need to include the following
-   port: 5000
-   MONGODB_URI:
+   PORT=5000
+   MONGODB_URI=mongodb+srv://nixxphi:this.is.the@redcluster.pixh5su.mongodb.net/?retryWrites=true&w=majority&appName=Redcluster
 
 4. Start the server:
    ```bash
