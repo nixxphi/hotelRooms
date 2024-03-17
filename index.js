@@ -4,10 +4,10 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const roomTypeRouter = require('./src/routes/roomTypeRouter');
-const roomRouter = require('./src/routes/roomRouter'); // Adjust the path as necessary
+const roomRouter = require('./src/routes/roomRouter');
 const roomTypeController = require('./src/controllers/roomTypeController');
-const roomController = require('./src/controllers/roomController'); // Adjust the path as necessary
-const errorHandler = require('./src/errorHandler');
+const roomController = require('./src/controllers/roomController');
+const errorHandler = require('./src/utils/utils');
 const apiKeyValidator = require('./src/validations/api-key-validator');
 const logger = require('./src/utils/logger');
 
