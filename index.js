@@ -7,6 +7,7 @@ const roomTypeRouter = require('./src/routes/roomTypeRouter');
 const roomRouter = require('./roomRouter');
 const errorHandler = require('./errorHandler');
 const apiKeyValidator = require('./src/validations/api-key-validator');
+const logger = require('./src/utils/logger');
 
 // LOAD ENVIRONMENT VARIABLES FROM .ENV FILE
 dotenv.config();
@@ -20,25 +21,25 @@ app.use(cors());
 // MIDDLEWARE
 app.use(bodyParser.json());
 
-
 // MIDDLEWARE TO VALIDATE API KEY FOR ALL ROUTES
 app.use(apiKeyValidator);
 
-// Example route
-app.get('/api/resource', (req, res) => {
-  res.json({ message: 'Access granted' });
+// LOGGER MIDDLEWARE
+app.use((req, res, next) => {
+  logger.info(`${req.method} ${req.url}`);
+  next();
 });
 
 // MONGODB CONNECTION
-mongoose.connect('mongodb+srv://nixxphi:this.is.the@redcluster.pixh5su.mongodb.net/?retryWrites=true&w=majority&appName=Redcluster', {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
 .then(() => {
-  console.log('Connected to MongoDB');
+  logger.info('Connected to MongoDB');
 })
 .catch((error) => {
-  console.error('Error connecting to MongoDB:', error);
+  logger.error('Error connecting to MongoDB:', error);
 });
 
 // ROUTES
@@ -50,5 +51,5 @@ app.use(errorHandler);
 // STARTING THE SERVER
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
+  logger.info(`Server listening on port ${PORT}`);
 });
