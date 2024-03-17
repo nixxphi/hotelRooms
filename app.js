@@ -1,9 +1,8 @@
-// IMPORTING NECESSARY MODULES
-const app = express();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
+const cors = require('cors'); // Import cors module
 const roomTypeRouter = require('./roomTypeRouter');
 const roomRouter = require('./roomRouter');
 const errorHandler = require('./errorHandler');
@@ -31,8 +30,6 @@ mongoose.connect('mongodb+srv://nixxphi:this.is.the@redcluster.pixh5su.mongodb.n
 .catch((error) => {
   console.error('Error connecting to MongoDB:', error);
 });
-
-app.use(express.json());
 
 // ROUTES
 app.use('/api/v1', roomTypeRouter);
