@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const Room = require('../models/Room');
+const Room = require('./Room');
 const roomTypeController = require('../controllers/roomTypeController'); 
-const { asyncHandler } = require('../utils');
+const { asyncHandler } = require('../../../utils');
 
 // POST endpoint for creating a new room
 router.post('/api/v1/rooms', asyncHandler(roomTypeController.createRoom));

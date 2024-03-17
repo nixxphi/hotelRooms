@@ -10,4 +10,3 @@ const apiKeyValidator = (req, res, next) => {
 };
 
 module.exports = apiKeyValidator;
-￼Enter

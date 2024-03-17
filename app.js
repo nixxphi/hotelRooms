@@ -3,10 +3,10 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const cors = require('cors');
-const roomTypeRouter = require('./roomTypeRouter');
+const roomTypeRouter = require('./src/routes/roomTypeRouter');
 const roomRouter = require('./roomRouter');
 const errorHandler = require('./errorHandler');
-const apiKeyValidator = require('./api-key-validator');
+const apiKeyValidator = require('./src/validations/api-key-validator');
 
 // LOAD ENVIRONMENT VARIABLES FROM .ENV FILE
 dotenv.config();
@@ -28,13 +28,6 @@ app.use(apiKeyValidator);
 app.get('/api/resource', (req, res) => {
   res.json({ message: 'Access granted' });
 });
-
-// Start the server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
-
 
 // MONGODB CONNECTION
 mongoose.connect('mongodb+srv://nixxphi:this.is.the@redcluster.pixh5su.mongodb.net/?retryWrites=true&w=majority&appName=Redcluster', {

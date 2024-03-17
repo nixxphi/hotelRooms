@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const RoomType = require('../models/RoomType');
 const roomTypeController = require('../controllers/roomTypeController');
-const { asyncHandler } = require('../utils');
+const { asyncHandler } = require('../../../utils');
 
 // Middleware for validating room type data
 const validateRoomType = (req, res, next) => {
