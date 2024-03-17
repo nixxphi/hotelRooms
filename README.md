@@ -57,7 +57,8 @@ This project is a Hotel Rooms Management System built with Node.js, Express.js, 
 ## Folder Structure
 
 ```
-hotel-room-management/
+
+hotelRooms/
 │
 ├── src/
 │   ├── controllers/
@@ -72,11 +73,15 @@ hotel-room-management/
 │   │   ├── roomTypeRouter.js
 │   │   └── roomRouter.js
 │   │
+│   ├── services/
+│   │   └── roomService.js
+│   │
 │   ├── validations/
 │   │   └── api-key-validator.js
 │   │
 │   ├── utils/
 │   │   └── logger.js
+|   |    └── utils.js
 │   │
 │   └── errorHandler.js
 │
@@ -84,8 +89,8 @@ hotel-room-management/
 ├── index.js
 ├── package.json
 └── README.md
-```
 
+```
 ## Technologies Used
 
 - Node.js
