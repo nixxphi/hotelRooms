@@ -10,8 +10,12 @@ const errorHandler = (err, req, res, next) => {
 };
 
 // OBJECT ID VALIDATOR. 
+const ObjectId = require('mongoose').Types.ObjectId;
+
 const validateObjectId = (id) => {
-  const ObjectId = require('mongoose').roomTypeId;
+  if (!id || typeof id !== 'string') {
+    return false;
+  }
   return ObjectId.isValid(id);
 };
 
