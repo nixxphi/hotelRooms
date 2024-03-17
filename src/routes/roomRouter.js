@@ -19,4 +19,3 @@ router.patch('/api/v1/rooms/:id', asyncHandler(roomController.updateRoomById));
 router.delete('/api/v1/rooms/:id', asyncHandler(roomController.deleteRoomById));
 
 module.exports = router;
-￼Enter
