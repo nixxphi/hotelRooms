@@ -1,5 +1,4 @@
-# hotelRooms
-Learnable task X
+# Learnable task X
 ---
 
 # Hotel Rooms Management System
@@ -12,33 +11,89 @@ This project is a Hotel Rooms Management System built with Node.js, Express.js, 
 - Fetch rooms with optional filters (search, room type, price range)
 - Error handling middleware for handling server errors gracefully
 - Environment configuration using dotenv for managing environment variables
-- Integration with MongoDB database
+- Integration with MongoDB database, express and Winston logger.
 
 ## Installation
 
-1. Start the server:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/nixxphi/hotelRooms.git
+   ```
 
+2. Install dependencies:
+   ```bash
+   npm install winston
+   npm install mongoose
+   npm install express
+   npm install nodemon
+   ```
+3. The dotenv file need to include the following
+   port: 5000
+   MONGODB_URI:
+
+4. Start the server:
    ```bash
    npm start
    ```
 
-## Usage
+## API Endpoints
 
-### API Endpoints
+### Room Types
 
-- **Create Room Type**: `POST /api/v1/rooms-types`
-- **Fetch All Room Types**: `GET /api/v1/rooms-types`
-- **Create Room**: `POST /api/v1/rooms`
-- **Fetch All Rooms**: `GET /api/v1/rooms`
-  - Optional Filters: `search`, `roomType`, `minPrice`, `maxPrice`
-- **Fetch Room by ID**: `GET /api/v1/rooms/:id`
-- **Update Room by ID**: `PATCH /api/v1/rooms/:id`
-- **Delete Room by ID**: `DELETE /api/v1/rooms/:id`
+- **POST /api/v1/roomTypes**: Create a new room type
+- **GET /api/v1/roomTypes**: Get all room types
+- **GET /api/v1/roomTypes/:id**: Get a room type by ID
+- **PATCH /api/v1/roomTypes/:id**: Update a room type by ID
+- **DELETE /api/v1/roomTypes/:id**: Delete a room type by ID
 
-### Testing
+### Rooms
 
-To run tests, use the following command:
+- **POST /api/v1/rooms**: Create a new room
+- **GET /api/v1/rooms**: Get all rooms with optional filters
+- **GET /api/v1/rooms/:id**: Get a room by ID
+- **PATCH /api/v1/rooms/:id**: Update a room by ID
+- **DELETE /api/v1/rooms/:id**: Delete a room by ID
 
-```bash
-npm test
+## Folder Structure
+
 ```
+hotel-room-management/
+│
+├── src/
+│   ├── controllers/
+│   │   ├── roomTypeController.js
+│   │   └── roomController.js
+│   │
+│   ├── models/
+│   │   ├── RoomType.js
+│   │   └── Room.js
+│   │
+│   ├── routes/
+│   │   ├── roomTypeRouter.js
+│   │   └── roomRouter.js
+│   │
+│   ├── validations/
+│   │   └── api-key-validator.js
+│   │
+│   ├── utils/
+│   │   └── logger.js
+│   │
+│   └── errorHandler.js
+│
+├── .env
+├── index.js
+├── package.json
+└── README.md
+```
+
+## Technologies Used
+
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- Winston
+
+## Authors
+
+- Igwenagu Chukwuma
