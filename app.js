@@ -6,6 +6,7 @@ const cors = require('cors');
 const roomTypeRouter = require('./roomTypeRouter');
 const roomRouter = require('./roomRouter');
 const errorHandler = require('./errorHandler');
+const apiKeyValidator = require('./api-key-validator');
 
 // LOAD ENVIRONMENT VARIABLES FROM .ENV FILE
 dotenv.config();
@@ -18,6 +19,22 @@ app.use(cors());
 
 // MIDDLEWARE
 app.use(bodyParser.json());
+
+
+// Middleware to validate API key for all routes
+app.use(apiKeyValidator);
+
+// Example route
+app.get('/api/resource', (req, res) => {
+  res.json({ message: 'Access granted' });
+});
+
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
 
 // MONGODB CONNECTION
 mongoose.connect('mongodb+srv://nixxphi:this.is.the@redcluster.pixh5su.mongodb.net/?retryWrites=true&w=majority&appName=Redcluster', {
