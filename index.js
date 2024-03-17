@@ -21,7 +21,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
-// Middleware to validate API key for all routes
+// MIDDLEWARE TO VALIDATE API KEY FOR ALL ROUTES
 app.use(apiKeyValidator);
 
 // Example route
