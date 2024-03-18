@@ -83,10 +83,9 @@ hotelRooms/
 │   │   └── logger.js
 |   |    └── utils.js
 │   │
-│   └── errorHandler.js
+│   └── server.js
 │
 ├── .env
-├── index.js
 ├── package.json
 └── README.md
 
